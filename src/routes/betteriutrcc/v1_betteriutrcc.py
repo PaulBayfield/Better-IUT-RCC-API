@@ -68,6 +68,7 @@ async def getThemes(request: Request) -> HTTPResponse:
     for theme in os.listdir("./themes"):
         with open(f"./themes/{theme}/metadata.json", "r", encoding="utf-8") as f:
             metadata = loads(f.read())
+            metadata["id"] = theme
             metadata["style"] = "/v1/themes/" + theme + "/style.css"
             metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
             metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
@@ -90,11 +91,18 @@ async def getTheme(request: Request, theme: str) -> HTTPResponse:
     :param theme: Le nom du thème
     :return: Les informations du thème
     """
-    with open(f"./themes/{theme}/metadata.json", "r", encoding="utf-8") as f:
-        metadata = loads(f.read())
-        metadata["style"] = "/v1/themes/" + theme + "/style.css"
-        metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
-        metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
+    try:
+        with open(f"./themes/{theme}/metadata.json", "r", encoding="utf-8") as f:
+            metadata = loads(f.read())
+            metadata["id"] = theme
+            metadata["style"] = "/v1/themes/" + theme + "/style.css"
+            metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
+            metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
+    except FileNotFoundError:
+        return json(
+            {"error": "Theme not found"},
+            status=404
+        )
 
     return json(
         metadata
