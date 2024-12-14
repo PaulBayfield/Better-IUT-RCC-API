@@ -68,7 +68,7 @@ async def getThemes(request: Request) -> HTTPResponse:
     for theme in os.listdir("./themes"):
         with open(f"./themes/{theme}/metadata.json", "r", encoding="utf-8") as f:
             metadata = loads(f.read())
-            metadata["style"] = "/v1/themes/" + theme + "/style.scss"
+            metadata["style"] = "/v1/themes/" + theme + "/style.css"
             metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
             metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
             themes.append(metadata)
@@ -78,8 +78,8 @@ async def getThemes(request: Request) -> HTTPResponse:
     )
 
 
-# /themes/<theme>/style.scss
-@bp.route("/themes/<theme>/style.scss", methods=["GET"])
+# /themes/<theme>/style.css
+@bp.route("/themes/<theme>/style.css", methods=["GET"])
 @openapi.no_autodoc
 @openapi.exclude()
 @ratelimit()
@@ -91,7 +91,7 @@ async def getThemeStyle(request: Request, theme: str) -> HTTPResponse:
     :return: Le style du thème
     """
     return await file(
-        location=f"./themes/{theme}/style.scss"
+        location=f"./themes/{theme}/style.css"
     )
 
 
