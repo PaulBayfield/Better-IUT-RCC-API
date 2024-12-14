@@ -2,7 +2,7 @@ from sanic import Sanic, Request
 from .config import AppConfig
 from .components.ratelimit import Ratelimiter
 from .components.statistics import PrometheusStatistics
-from .routes import RouteService, RouteBetterIUTRCC, RouteMisc
+from .routes import RouteIndex, RouteService, RouteBetterIUTRCC, RouteMisc
 from .utils.logger import Logger
 from dotenv import load_dotenv
 from datetime import datetime
@@ -28,9 +28,12 @@ app.ctx.ratelimiter = Ratelimiter()
 
 
 # Enregistrement des routes
+app.blueprint(RouteIndex)
 app.blueprint(RouteService)
 app.blueprint(RouteBetterIUTRCC)
 app.blueprint(RouteMisc)
+
+app.static("/static", "./static")
 
 
 @app.listener("before_server_start")
