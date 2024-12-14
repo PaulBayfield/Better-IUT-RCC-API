@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.container > .column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.container > .row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.container .two-columns > * {
+    width: 50%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: var(--text);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.box > .title {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.box > .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+.box > .description > * {
+    text-wrap: wrap;
+}
+
+.box.big {
+    min-width: 50%;
+}
+
+.box > .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box > .content.column {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.box > .content > img {
+    border-radius: 10px;
+}
+
+@media (min-width: 1000px) {
+    .container > .column {
+        flex-wrap: nowrap;
+    }
+}

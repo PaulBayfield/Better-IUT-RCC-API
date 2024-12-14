@@ -1,0 +1,82 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+form > input, form > select, form > textarea {
+    padding: 10px;
+    border: 1px solid var(--extra-1);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 16px;
+}
+
+form > select {
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+form > input[type="text"]:focus,
+form > select:focus,
+form > textarea:focus,
+form > input[type="file"]:focus {
+    border: 1px solid var(--text);
+    outline: none;
+}
+
+form > input[type="file"] {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 8px;
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+form > input[type="file"]:hover {
+    border: 1px solid var(--text);
+}
+
+form > input[type="file"]::file-selector-button {
+    padding: 15px;
+    margin: 0 15px 0 0;
+    border: 0px;
+    border-radius: 5px 0 0 5px;
+    background-color: var(--background-2);
+    color: var(--text);
+    transition: all 0.3s ease-in-out;
+    width: max-content;
+    height: 100%;
+}
+
+form > input[type="file"]:focus {
+    border: 1px solid var(--text);
+}
+
+form > textarea {
+    resize: none;
+    height: 100px;
+    outline: none;
+}
+
+form > input[type="submit"] {
+    background-color: var(--extra-3);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+form > input[type="submit"]:hover {
+    background-color: var(--background-1);
+}
+
+.filter-form {
+    margin-bottom: 0px;
+}

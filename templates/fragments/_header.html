@@ -1,0 +1,28 @@
+<header id="header">
+    <nav>
+        <a href="#" class="logo" >
+            <img src="{{ url_for('static', filename='logo.png') }}">
+        </a>
+        <div class="links">
+            <div class="row">
+                <h1 class="title">Better IUT RCC</h1>
+            </div>
+            <div class="small-row">
+                <button class="button" id="switch-lang" data-umami-event="Switch Lang">
+                    <img src="{{ url_for('static', filename='images/uk.png') }}" lang="en">
+                    <img src="{{ url_for('static', filename='images/fr.png') }}" lang="fr">
+                </button>
+                <div class="divider"></div>
+                <button class="button" id="switch-mode" data-umami-event="Switch Theme">
+                    <img src="{{ url_for('static', filename='images/light.png') }}" id="mode-dark">
+                    <img src="{{ url_for('static', filename='images/dark.png') }}" id="mode-light">
+                </button>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    {% include './fragments/_meta.html' %}
+
+    <title>Better IUT RCC</title>
+
+    <link rel="favicon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/container.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    {% include './fragments/_analytics.html' %}
+
+    {% include './fragments/_script.html' %}
+</head>
+<body>
+    {% include './fragments/_header.html' %}
+    <section class="container" id="albums">
+        <div class="column">
+            <div class="box">
+                <div class="title">
+                    <h1 lang="fr">A propos</h1>
+                    <h1 lang="en">About</h1>
+                </div>
+                <div class="description">
+                    <p lang="fr">Better IUT RCC est une extension navigateurs qui améliore l'interface de l'intranet de l'IUT RCC.</p>
+                    <p lang="en">Better IUT RCC is a browser extension that improves the interface of the IUT RCC intranet.</p>
+
+                    <p lang="fr">Better IUT RCC est disponible sur Chrome, Firefox et Edge.</p>
+                    <p lang="en">Better IUT RCC is available on Chrome, Firefox and Edge.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h1 lang="fr">Télécharger</h1>
+                    <h1 lang="en">Download</h1>
+                </div>
+                <div class="content">
+                    <a href="https://chromewebstore.google.com/detail/better-iut-rcc/jofahdhjofjoackgkaodimfhnbfkgnbj" target="_blank"><img src="{{ url_for('static', filename='images/chrome.png') }}" alt="Available in the Chrome Web Store"></a>
+                    <a href="https://github.com/PaulBayfield/Better-IUT-RCC/releases/latest" target="_blank"><img src="{{ url_for('static', filename='images/firefox.png') }}" alt="Available in the Firefox Web Store"></a>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/leknkclokgeajllkbhnldadkapjmlhhf" target="_blank"><img src="{{ url_for('static', filename='images/edge.png') }}" alt="Available in the Edge Web Store"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <div class="title">
+                    <h1 lang="fr">Aperçu</h1>
+                    <h1 lang="en">Preview</h1>
+                </div>
+                <div class="content column">
+                    <img src="{{ url_for('static', filename='previews/homepage.png') }}" alt="Homepage">
+                    <img src="{{ url_for('static', filename='previews/restaurants.png') }}" alt="Restaurants">
+                    <img src="{{ url_for('static', filename='previews/marks.png') }}" alt="Marks">
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include './fragments/_footer.html' %}
+</body>
+</html>
