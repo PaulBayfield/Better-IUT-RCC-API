@@ -1,0 +1,13 @@
+services:
+  api:
+    container_name: api
+    build: .
+    ports:
+      - "7001:7001"
+    restart: unless-stopped
+    networks:
+      - BetterIUTRCCAPINetwork
+
+networks:
+  BetterIUTRCCAPINetwork:
+    external: true
