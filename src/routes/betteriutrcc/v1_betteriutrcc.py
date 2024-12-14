@@ -76,6 +76,29 @@ async def getThemes(request: Request) -> HTTPResponse:
     return json(
         themes
     )
+    
+    
+# /themes/<theme>
+@bp.route("/themes/<theme>", methods=["GET"])
+@openapi.no_autodoc
+@openapi.exclude()
+@ratelimit()
+async def getTheme(request: Request, theme: str) -> HTTPResponse:
+    """
+    Retourne les informations du thème.
+
+    :param theme: Le nom du thème
+    :return: Les informations du thème
+    """
+    with open(f"./themes/{theme}/metadata.json", "r", encoding="utf-8") as f:
+        metadata = loads(f.read())
+        metadata["style"] = "/v1/themes/" + theme + "/style.css"
+        metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
+        metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
+
+    return json(
+        metadata
+    )
 
 
 # /themes/<theme>/style.css
