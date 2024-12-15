@@ -72,6 +72,12 @@ async def getThemes(request: Request) -> HTTPResponse:
             metadata["style"] = "/v1/themes/" + theme + "/style.css"
             metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
             metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
+
+            if os.path.exists(f"./themes/{theme}/background-light.png"):
+                metadata["background-light"] = "/v1/themes/" + theme + "/background-light.png"
+            if os.path.exists(f"./themes/{theme}/background-dark.png"):
+                metadata["background-dark"] = "/v1/themes/" + theme + "/background-dark.png"
+
             themes.append(metadata)
 
     return json(
@@ -98,6 +104,11 @@ async def getTheme(request: Request, theme: str) -> HTTPResponse:
             metadata["style"] = "/v1/themes/" + theme + "/style.css"
             metadata["preview-light"] = "/v1/themes/" + theme + "/preview-light.png"
             metadata["preview-dark"] = "/v1/themes/" + theme + "/preview-dark.png"
+            
+            if os.path.exists(f"./themes/{theme}/background-light.png"):
+                metadata["background-light"] = "/v1/themes/" + theme + "/background-light.png"
+            if os.path.exists(f"./themes/{theme}/background-dark.png"):
+                metadata["background-dark"] = "/v1/themes/" + theme + "/background-dark.png"
     except FileNotFoundError:
         return json(
             {"error": "Theme not found"},
@@ -158,3 +169,49 @@ async def getThemePreviewDark(request: Request, theme: str) -> HTTPResponse:
     return await file(
         location=f"./themes/{theme}/preview-dark.png"
     )
+
+
+# /themes/<theme>/background-light.png
+@bp.route("/themes/<theme>/background-light.png", methods=["GET"])
+@openapi.no_autodoc
+@openapi.exclude()
+@ratelimit()
+async def getThemeBackground(request: Request, theme: str) -> HTTPResponse:
+    """
+    Retourne l'image de fond du thème.
+
+    :param theme: Le nom du thème
+    :return: L'image de fond du thème
+    """
+    try:
+        return await file(
+            location=f"./themes/{theme}/background-light.png"
+        )
+    except FileNotFoundError:
+        return json(
+            {"error": "Background not found"},
+            status=404
+        )
+
+
+# /themes/<theme>/background-dark.png
+@bp.route("/themes/<theme>/background-dark.png", methods=["GET"])
+@openapi.no_autodoc
+@openapi.exclude()
+@ratelimit()
+async def getThemeBackgroundDark(request: Request, theme: str) -> HTTPResponse:
+    """
+    Retourne l'image de fond du thème en mode sombre.
+
+    :param theme: Le nom du thème
+    :return: L'image de fond du thème en mode sombre
+    """
+    try:
+        return await file(
+            location=f"./themes/{theme}/background-dark.png"
+        )
+    except FileNotFoundError:
+        return json(
+            {"error": "Background not found"},
+            status=404
+        )
