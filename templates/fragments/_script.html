@@ -21,9 +21,15 @@
             if (document.documentElement.getAttribute('data-theme') == 'dark') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 $("#mode").removeAttr("src").attr("src", "light.png");
+
+                $("img[id='img-marks'").setAttribute("src", "marks-light.png");
+                $("img[id='img-restaurants'").setAttribute("src", "restaurants-light.png");
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 $("#mode").removeAttr("src").attr("src", "dark.png");
+
+                $("img[id='img-marks'").setAttribute("src", "marks-dark.png");
+                $("img[id='img-restaurants'").setAttribute("src", "restaurants-dark.png");
             }
         });
 
