@@ -22,14 +22,14 @@
                 document.documentElement.setAttribute('data-theme', 'light');
                 $("#mode").removeAttr("src").attr("src", "light.png");
 
-                $("img[id='img-marks'").setAttribute("src", "marks-light.png");
-                $("img[id='img-restaurants'").setAttribute("src", "restaurants-light.png");
+                $("img[id='img-marks'").removeAttr("src").attr("src", "marks-light.png");
+                $("img[id='img-restaurants'").removeAttr("src").attr("src", "restaurants-light.png");
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 $("#mode").removeAttr("src").attr("src", "dark.png");
 
-                $("img[id='img-marks'").setAttribute("src", "marks-dark.png");
-                $("img[id='img-restaurants'").setAttribute("src", "restaurants-dark.png");
+                $("img[id='img-marks'").removeAttr("src").attr("src", "marks-dark.png");
+                $("img[id='img-restaurants'").removeAttr("src").attr("src", "restaurants-dark.png");
             }
         });
 
