@@ -78,7 +78,10 @@ async def getThemes(request: Request) -> HTTPResponse:
             if os.path.exists(f"./themes/{theme}/background-dark.png"):
                 metadata["background-dark"] = "/v1/themes/" + theme + "/background-dark.png"
 
-            themes.append(metadata)
+            if metadata.get("pinned", False):
+                themes.insert(0, metadata)
+            else:
+                themes.append(metadata)
 
     return json(
         themes
