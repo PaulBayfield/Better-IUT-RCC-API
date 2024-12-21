@@ -22,7 +22,7 @@ body.rcc:not(dark-theme) .code-preview {
 }
 
 body.rcc:not(dark-theme) .main-container {
-    background-image: url(https://betteriutrcc.bayfield.dev/v1/themes/justin-farm/background-light.png) !important;
+    background-image: url(https://betteriutrcc.bayfield.dev/v1/themes/valorant/background-light.png) !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -63,7 +63,7 @@ body.rcc:not(dark-theme) .bg-white * {
 }
 
 body.rcc:not(dark-theme) .sidebar-navigation > .menu > .active > .menu-link {
-    background-color: #3ebff0 !important;
+    background-color: #ff4654 !important;
     color: #575279 !important;
 }
 
@@ -102,12 +102,12 @@ body.rcc:not(dark-theme) .nav-link {
 
 body.rcc:not(dark-theme) .nav-link:hover {
     color: #FFFFFF !important;
-    background-color: #3ebff0 !important;
+    background-color: #ba3a46 !important;
 }
 
 body.rcc:not(dark-theme) .nav-link.active {
     color: #FFFFFF !important;
-    background-color: #3ebff0 !important;
+    background-color: #ff4654 !important;
 }
 body.rcc:not(dark-theme) table {
     --bs-table-color: #000000 !important;
@@ -309,7 +309,7 @@ body.rcc.dark-theme .code-preview {
 }
 
 body.rcc.dark-theme .main-container {
-    background-image: url(https://betteriutrcc.bayfield.dev/v1/themes/justin-farm/background-dark.png) !important;
+    background-image: url(https://betteriutrcc.bayfield.dev/v1/themes/valorant/background-dark.png) !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -350,7 +350,7 @@ body.rcc.dark-theme .bg-white * {
 }
 
 body.rcc.dark-theme .sidebar-navigation > .menu > .active > .menu-link {
-    background-color: #1D2E61 !important;
+    background-color: #ba3a46 !important;
     color: #FFFFFF !important;
 }
 
@@ -397,13 +397,14 @@ body.rcc.dark-theme .nav-link {
 
 body.rcc.dark-theme .nav-link:hover {
     color: #FFFFFF !important;
-    background-color: #3ebff0 !important;
+    background-color: #ff4654 !important;
 }
 
 body.rcc.dark-theme .nav-link.active {
     color: #FFFFFF !important;
-    background-color: #3ebff0 !important;
+    background-color: #ba3a46 !important;
 }
+
 body.rcc.dark-theme table {
     --bs-table-color: #000000 !important;
     --bs-table-bg: rgba(0, 0, 0, 1) !important;
