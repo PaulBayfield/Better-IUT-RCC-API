@@ -126,14 +126,17 @@
                             <h4 class="card-title">Aperçu du Menu</h4>
                         </header>
                         <div class="card-body" style="overflow: auto;">
-                            <img src="https://api-croustillant.bayfield.dev/v1/restaurants/871/menu/{{date}}/image?theme={{theme}}" id="image-menu"
+                            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 5px; gap: 5px;">
+                                Vous souhaitez voir le menu d'un autre restaurant ? Rendez vous ici : https://croustillant.menu, le site officiel de CROUStillant qui regroupe tous les restaurants universitaires de France !
+                            </div>
+                            <img src="https://api.croustillant.menu/v1/restaurants/871/menu/{{date}}/image?theme={{theme}}" id="image-menu"
                                 alt="Menu du CROUS" style="width: 100%; border-radius: 10px;">
                             <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 5px; gap: 5px;">
                                 🆘
                                 <div style="display: flex; font-style: italic;">
                                     Vous rencontrez un problème avec l'affichage du menu ? Merci de
                                     <div class="nav-dotted nav-dot-separated">
-                                        <a class="nav-link" href="https://api-croustillant.bayfield.dev/contact" target="_blank">
+                                        <a class="nav-link" href="https://api.croustillant.menu/contact" target="_blank">
                                             signaler un problème ici.
                                         </a>
                                     </div>
@@ -180,7 +183,7 @@
                                         <i class="fas fa-share-alt"></i>
                                         Partager
                                     </button>
-                                    <a class="btn btn-light" href="https://api-croustillant.bayfield.dev/v1/restaurants/871/menu/{{date}}/image" target="_blank" id="btn-download">
+                                    <a class="btn btn-light" href="https://api.croustillant.menu/v1/restaurants/871/menu/{{date}}/image" target="_blank" id="btn-download">
                                         <i class="fas fa-download"></i>
                                         Télécharger
                                     </a>
@@ -234,7 +237,7 @@
                                     📦 CROUStillant est un service open source et gratuit qui permet de récupérer les menus de n'importe quel restaurant universitaire en France et Outre-Mer.
                                 </p>
                                 <p style="font-style: italic;">
-                                    CROUStillant ne collecte ni ne stocke aucune donnée personnelle. Pour plus de questions, contactez nous : <a href="https://api-croustillant.bayfield.dev/contact" style="text-decoration: underline;" target="_blank">api-croustillant.bayfield.dev/contact</a>.
+                                    CROUStillant ne collecte ni ne stocke aucune donnée personnelle. Pour plus de questions, contactez nous : <a href="https://api.croustillant.menu/contact" style="text-decoration: underline;" target="_blank">api.croustillant.menu/contact</a>.
                                 </p>
                             </div>
                         </div>
