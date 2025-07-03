@@ -9,6 +9,4 @@ WORKDIR /BetterIUTRCCAPI
 
 RUN uv sync --frozen
 
-EXPOSE 7001
-
 CMD ["uv", "run", "__main__.py"]
