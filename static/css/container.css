@@ -63,6 +63,10 @@
     justify-content: space-around;
 }
 
+.box > .content.wrap {
+    flex-wrap: wrap;
+}
+
 .box > .content.column {
     flex-direction: column;
     gap: 20px;

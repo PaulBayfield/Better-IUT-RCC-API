@@ -1,6 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
+        $("#annee-fr").text(new Date().getFullYear());
+        $("#annee-en").text(new Date().getFullYear());
+
         $("*[lang='fr']").show();
         $("*[lang='en']").hide();
         $("html").show();
@@ -12,6 +15,9 @@
             $("*[lang='fr']").toggle();
             $("*[lang='en']").toggle();
             $("html").show();
+
+            $("#annee-fr").text(new Date().getFullYear());
+            $("#annee-en").text(new Date().getFullYear());
         });
 
         $("#switch-mode").click(function () {
@@ -34,7 +40,6 @@
         });
 
         const hamburger = $(".hamburger");
-        const year = $("#annee");
         const header = $("#header");
 
         var isOpen = false;
@@ -53,10 +58,6 @@
             $("body").removeClass('noscroll');
             isOpen = false;
             header.removeClass("active");
-        });
-
-        $(window).on("load", function() {
-            year.text(new Date().getFullYear());
         });
     });
 </script>
