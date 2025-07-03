@@ -126,8 +126,14 @@
                             <h4 class="card-title">Aperçu du Menu</h4>
                         </header>
                         <div class="card-body" style="overflow: auto;">
-                            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 5px; gap: 5px;">
-                                Vous souhaitez voir le menu d'un autre restaurant ? Rendez vous ici : https://croustillant.menu, le site officiel de CROUStillant qui regroupe tous les restaurants universitaires de France !
+                            <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 5px; gap: 5px; font-weight: bold;">
+                                <p>Vous souhaitez voir le menu d'un autre restaurant en France ? Rendez vous ici :</p>
+                                <div class="nav-dotted nav-dot-separated">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <a class="nav-link" href="https://croustillant.menu" target="_blank">
+                                        <strong>https://croustillant.menu</strong>
+                                    </a>
+                                </div>
                             </div>
                             <img src="https://api.croustillant.menu/v1/restaurants/871/menu/{{date}}/image?theme={{theme}}" id="image-menu"
                                 alt="Menu du CROUS" style="width: 100%; border-radius: 10px;">
