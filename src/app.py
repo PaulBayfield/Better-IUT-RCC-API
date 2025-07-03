@@ -1,9 +1,9 @@
 from sanic import Sanic, Request
+from sanic.log import logger
 from .config import AppConfig
 from .components.ratelimit import Ratelimiter
 from .components.statistics import PrometheusStatistics
 from .routes import RouteIndex, RouteService, RouteBetterIUTRCC, RouteMisc
-from .utils.logger import Logger
 from dotenv import load_dotenv
 from datetime import datetime
 from pytz import timezone
@@ -38,14 +38,12 @@ app.static("/static", "./static")
 
 @app.listener("before_server_start")
 async def setup_app(app: Sanic, loop):
-    app.ctx.logs = Logger("logs")
-    app.ctx.requests = Logger("requests")
-    app.ctx.logs.info("API démarrée")
+    logger.info("Démarrage de l'API Better IUT RCC...")
 
 
 @app.listener("after_server_stop")
 async def close_app(app: Sanic, loop):
-    app.ctx.logs.info("API arrêtée")
+    logger.info("Arrêt de l'API Better IUT RCC...")
 
 
 @app.on_request
@@ -58,4 +56,4 @@ async def after_request(request: Request, response):
     end = datetime.now(timezone("Europe/Paris")).timestamp()
     process = end - request.ctx.start
 
-    app.ctx.requests.info(f"{request.headers.get('CF-Connecting-IP', request.client_ip)} - [{request.method}] {request.url} - {response.status} ({process * 1000:.2f}ms)")
+    logger.info(f"{request.headers.get('CF-Connecting-IP', request.client_ip)} - [{request.method}] {request.url} - {response.status} ({process * 1000:.2f}ms)")
