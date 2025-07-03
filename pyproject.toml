@@ -1,0 +1,17 @@
+[project]
+name = "better-iut-rcc-api"
+version = "1.1.0"
+description = "Better IUT RCC API"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jinja2>=3.1.6",
+    "prometheus-client>=0.22.1",
+    "python-dotenv>=1.1.1",
+    "pytz>=2025.2",
+    "sanic>=25.3.0",
+    "sanic-ext",
+]
+
+[tool.uv.sources]
+sanic-ext = { git = "https://github.com/PaulBayfield/sanic-ext" }
