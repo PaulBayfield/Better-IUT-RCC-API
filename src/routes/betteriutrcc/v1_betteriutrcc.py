@@ -1,6 +1,7 @@
 import os
 
 from ...components.ratelimit import ratelimit
+from ...models.components import ThemeComponent
 from sanic.response import HTTPResponse, file, json
 from sanic import Blueprint, Request
 from sanic_ext import openapi, render
@@ -54,8 +55,31 @@ async def getMenu(request: Request) -> HTTPResponse:
 
 # /themes
 @bp.route("/themes", methods=["GET"])
-@openapi.no_autodoc
-@openapi.exclude()
+@openapi.definition(
+    summary="Liste des thèmes disponibles",
+    description="Liste des thèmes disponibles pour l'extension de Better IUT RCC.",
+    tag="Themes",
+)
+@openapi.response(
+    status=200,
+    content={
+        "application/json": openapi.Array(
+            items=ThemeComponent,
+            description="Liste des thèmes disponibles",
+        )
+    },
+    description="Liste des thèmes disponibles."
+)
+@openapi.response(
+    status=429,
+    content={
+        "application/json": openapi.String(
+            description="Statut de la requête",
+            example="Vous avez envoyé trop de requêtes. Veuillez réessayer plus tard."
+        )
+    },
+    description="Vous avez envoyé trop de requêtes. Veuillez réessayer plus tard."
+)
 @ratelimit()
 async def getThemes(request: Request) -> HTTPResponse:
     """
@@ -90,8 +114,42 @@ async def getThemes(request: Request) -> HTTPResponse:
     
 # /themes/<theme>
 @bp.route("/themes/<theme>", methods=["GET"])
-@openapi.no_autodoc
-@openapi.exclude()
+@openapi.definition(
+    summary="Informations sur un thème",
+    description="Retourne les informations d'un thème spécifique.",
+    tag="Themes",
+)
+@openapi.response(
+    status=200,
+    content={
+        "application/json": ThemeComponent
+    },
+    description="Informations sur le thème."
+)
+@openapi.response(
+    status=404,
+    content={
+        "application/json": openapi.Object(
+            properties={
+                "error": openapi.String(
+                    description="Message d'erreur si le thème n'est pas trouvé.",
+                    example="Theme not found"
+                )
+            }
+        )
+    },
+    description="Le thème demandé n'existe pas."
+)
+@openapi.response(
+    status=429,
+    content={
+        "application/json": openapi.String(
+            description="Statut de la requête",
+            example="Vous avez envoyé trop de requêtes. Veuillez réessayer plus tard."
+        )
+    },
+    description="Vous avez envoyé trop de requêtes. Veuillez réessayer plus tard."
+)
 @ratelimit()
 async def getTheme(request: Request, theme: str) -> HTTPResponse:
     """
