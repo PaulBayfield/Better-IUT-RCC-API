@@ -1,7 +1,0 @@
-services:
-  api:
-    container_name: better-iut-rcc-api
-    build: .
-    ports:
-      - "7001:7001"
-    restart: unless-stopped

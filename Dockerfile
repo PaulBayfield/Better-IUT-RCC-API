@@ -7,6 +7,6 @@ COPY . ./BetterIUTRCCAPI
 
 WORKDIR /BetterIUTRCCAPI
 
-RUN uv sync --frozen
+RUN uv sync --frozen  --no-dev
 
 CMD ["uv", "run", "__main__.py"]
